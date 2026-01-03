@@ -41,7 +41,8 @@ function chart() {
         .attr("fill", "none")
         .attr("stroke", "white")
         .attr("stroke-linejoin", "round")
-        .attr("d", path);
+        .attr("d", path)
+        
   
     // Create the legend.
     const legend = svg.append("g")
@@ -57,7 +58,8 @@ function chart() {
         .attr("fill", "none")
         .attr("stroke", "#ccc")
         .attr("cy", d => -radius(d))
-        .attr("r", radius);
+        .attr("r", radius)
+        
   
     legend.append("text")
         .attr("y", d => -2 * radius(d))
@@ -76,6 +78,7 @@ function chart() {
       .join("circle")
         .attr("transform", d => `translate(${centroid(d.county)})`)
         .attr("r", d => radius(d.population))
+        .attr("tabindex", "1")
       .append("title")
         .text(d => `${d.county.properties.name}, ${d.state.properties.name}
   ${format(d.population)}`);
